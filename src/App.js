@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './css/App.css';
 import Login from './components/Login';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Registration from './components/Registration';
+import PersonalArea from "./components/PersonalArea";
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>} />
         <Route path="registration" element={<Registration/>} />
+          <Route path="/{id}" element={<PersonalArea/>}></Route>
       </Routes>
     </BrowserRouter>
   );

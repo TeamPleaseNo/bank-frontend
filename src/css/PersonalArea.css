@@ -1,0 +1,141 @@
+.header{
+    height: 60px;
+    width: 100%;
+    position: relative;
+    display: grid;
+}
+
+.line{
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, #8a2be2, #ef05cc);
+    position: absolute;
+    bottom: 0;
+}
+
+.label_in_header{
+    justify-self: center;
+    align-self: center;
+    color: #d097c7;
+}
+
+.left_inf{
+    width: 50%;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+}
+
+.form_l{
+    height: 600px;
+    width: 600px;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-template-rows: 200px auto;
+}
+
+.form_r{
+    width: 90%;
+    justify-self: center;
+    align-self: center;
+}
+
+.right_inf{
+    width: 50%;
+    display: grid;
+    position: relative;
+}
+
+.loans{
+    height: 500px;
+    display: grid;
+    overflow: auto;
+    grid-template-rows: 100px 200px;
+}
+
+.inf{
+    color: #d097c7;
+    display: flex;
+    position: relative;
+    height: calc(100vh - 60px);
+}
+
+.basic_info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: center;
+    text-align: left;
+}
+
+.read_info {
+    box-shadow: 0px 0px 2px purple;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-height: 25px;
+    outline: none;
+    padding: 4px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dadada;
+}
+
+.loan{
+    margin-top: 20px;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.name{
+    width: 20%;
+    text-align: center;
+}
+
+.info{
+    width: 50%;
+    text-align: center;
+}
+
+.percent{
+    width: 15%;
+    text-align: center;
+}
+
+.choice{
+    width: 15%;
+    text-align: center;
+}
+
+.column{
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+}
+
+.answer{
+    margin-top: 20px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.info_text{
+    resize: none;
+    outline: none;
+    box-shadow: 0px 0px 2px purple;
+    margin-bottom: 10px;
+    font-size: 16px;
+    max-height: 50px;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dadada;
+}
+
+
+
