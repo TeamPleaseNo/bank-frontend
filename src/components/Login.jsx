@@ -1,11 +1,12 @@
-import './../Login.css';
+import './../css/Login.css';
+import {Link} from 'react-router-dom';
 const moneybox = require('./moneybox.png');
 
 const Login = () => {
     return ( 
         <div className='LoginContainer'>
             <img className="icon_moneybox" src={moneybox} alt="Moneybox" width="5%"/>
-            <div className="form">
+            <form className="form" autoComplete='off'>
                 <h>Вход</h>
                 <div className="form_input">
                     <label className="block_label" for="login">
@@ -16,9 +17,9 @@ const Login = () => {
                         Пароль
                         <input className="input" type="password" id="password"/>
                     </label>
-                    <a className="ref_reg">Ещё нет аккаунта?</a>
+                    <Link to="registration" className="ref_reg">Ещё нет аккаунта?</Link>
                 </div>
-            </div>
+            </form>
         </div>
      );
 }
