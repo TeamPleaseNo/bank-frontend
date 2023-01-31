@@ -8,7 +8,7 @@ import ErrorSuccessObject from "../Objects/ErrorSuccessObject";
 import ServiceInfo from "../Objects/ServiceInfo";
 
 class OrganisationRepository {
-    async login(loginInfo: LoginInfo) {
+    async login(loginInfo: RegInfo) {
         await axios.post("/api/v1/organisation/registration", loginInfo)
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
@@ -19,7 +19,7 @@ class OrganisationRepository {
             })
     }
 
-    async registration(orgInfo: RegInfo) {
+    async registration(orgInfo: LoginInfo) {
         await axios.post("/api/v1/organisation/authorization", orgInfo)
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
