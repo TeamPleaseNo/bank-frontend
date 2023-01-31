@@ -1,10 +1,19 @@
 import {Link} from 'react-router-dom'
 import './../css/Login.css'
+import './../repositories/OrganisationRepository'
+import repository from './../repositories/OrganisationRepository';
+import RegInfo from '../Objects/RegInfo';
 const moneybox = require('./moneybox.png'); 
 
 const Registration = () => {
+
+    const handleRegistration = () => {
+        const regInfo = {
+            
+        }
+    }
     return ( 
-        <div className='LoginContainer'>
+        <form className='LoginContainer'>
             <img class="icon_moneybox" src={moneybox} alt="Moneybox" width="5%" />
             <div class="form">
                 <h>Регистрация</h>
@@ -24,7 +33,8 @@ const Registration = () => {
                     <Link to="/" class="ref_reg">Уже есть аккаунт?</Link>
                 </div>
             </div>
-        </div>
+            <button onClick={handleRegistration}>Зарегистрироваться</button>
+        </form>
      );
 }
  

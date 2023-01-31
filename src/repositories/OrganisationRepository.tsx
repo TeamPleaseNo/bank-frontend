@@ -119,3 +119,6 @@ class OrganisationRepository {
             .catch(error => console.log(error))
     }
 }
+
+const repository = new OrganisationRepository();
+export default repository;
