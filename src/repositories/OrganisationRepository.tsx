@@ -7,20 +7,23 @@ import axios from 'axios';
 import ErrorSuccessObject from "../Objects/ErrorSuccessObject";
 import ServiceInfo from "../Objects/ServiceInfo";
 
+const url = "http://194-67-97-8.cloudvps.regruhosting.ru";
+
 class OrganisationRepository {
+
     async registration(loginInfo: RegInfo) {
-        await axios.post("/api/v1/organisation/registration", loginInfo)
+        await axios.post(url + "/api/v1/organisation/registration", loginInfo)
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
                 localStorage.setItem('refreshToken', response.data.refreshToken);
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.request);
             })
     }
 
     async login(orgInfo: LoginInfo) {
-        await axios.post("/api/v1/organisation/authorization", orgInfo)
+        await axios.post(url + "/api/v1/organisation/authorization", orgInfo)
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
                 localStorage.setItem('refreshToken', response.data.refreshToken);
@@ -31,7 +34,7 @@ class OrganisationRepository {
     }
 
     async removeOrganisation(loginInfo: LoginInfo) {
-        await axios.post("/api/v1/organisation/removeOrganisation", loginInfo)
+        await axios.post(url + "/api/v1/organisation/removeOrganisation", loginInfo)
             .catch(error => {
                 console.log(error);
             })
@@ -41,7 +44,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
           }
-        return axios.get("/api/v1/organisation/getPersonalData", {headers})
+        return axios.get(url + "/api/v1/organisation/getPersonalData", {headers})
           .then(response => response.data)
           .catch(error => {console.log(error);})
     }
@@ -50,7 +53,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post("/api/v1/organisation/changePersonalData", orgInfo, {headers})
+        return axios.post(url + "/api/v1/organisation/changePersonalData", orgInfo, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
@@ -59,7 +62,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-       return axios.post("/api/v1/organisation/addBranch", branchInfo, {headers})
+       return axios.post(url + "/api/v1/organisation/addBranch", branchInfo, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
@@ -68,7 +71,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post("/api/v1/organisation/removeBranch", branchID, {headers})
+        return axios.post(url + "/api/v1/organisation/removeBranch", branchID, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
@@ -77,7 +80,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post("/api/v1/organisation/getBranches", {headers})
+        return axios.post(url + "/api/v1/organisation/getBranches", {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
@@ -86,7 +89,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post("/api/v1/organisation/addService", {headers})
+        return axios.post(url + "/api/v1/organisation/addService", {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
@@ -95,7 +98,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post("/api/v1/organisation/removeService", {headers})
+        return axios.post(url + "/api/v1/organisation/removeService", {headers})
             .then(response => response.data)
             .catch(error => console.log(error)) 
     }
@@ -105,7 +108,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post("/api/v1/organisation/getServices", {headers})
+        return axios.post(url + "/api/v1/organisation/getServices", {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
@@ -114,7 +117,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post("/api/v1/token/refresh_token", {headers})
+        return axios.post(url + "/api/v1/token/refresh_token", {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
