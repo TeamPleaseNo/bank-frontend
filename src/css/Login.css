@@ -8,7 +8,7 @@ body {
     display: grid;
 }
 
-h{
+h1{
     font-size: 30px;
     justify-self: center;
     align-self: center;
@@ -17,14 +17,12 @@ h{
 .icon_moneybox{
     justify-self: center;
     align-self: center;
-    margin-bottom: 40px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .form_input {
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
     align-items: center;
     text-align: left;
 }
@@ -53,9 +51,15 @@ h{
     box-shadow: 0px 0px 20px #e000e0;
 }
 
-.ref_log{
-    margin-top: 20px;
+.ref{
+    margin-top: 10px;
+    padding-bottom: 30px;
 }
+
+.ref:focus{
+    color: #e000e0;
+}
+
 
 .form{
     width: 30%;
@@ -64,4 +68,21 @@ h{
     align-self: center;
     display: grid;
     grid-template-rows: 200px auto;
+    overflow: auto;
+}
+
+.button_login{
+    margin-bottom: 10px;
+    height: 70px;
+    outline: none;
+    padding: 4px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #150964, #f86ee3);
+    color: #19062c;
+}
+
+.button_login:focus{
+    background: linear-gradient(90deg, #f86ee3, #150964);
 }

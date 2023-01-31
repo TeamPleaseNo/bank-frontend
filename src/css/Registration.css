@@ -1,67 +1,19 @@
-body {
-    background-color: #1d0117;
-    font-family: 'Open Sans', sans-serif;
-    color: blueviolet;
-}
-
-.LoginContainer {
+.RegContainer {
     display: grid;
 }
 
-h{
-    font-size: 30px;
-    justify-self: center;
-    align-self: center;
-}
-
-.icon_moneybox{
-    justify-self: center;
-    align-self: center;
-    margin-bottom: 40px;
-    margin-top: 15px;
-}
-
-.form_input {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    align-items: center;
-    text-align: left;
-}
-
-.block_label{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-}
-
-.input {
-    box-shadow: 0px 0px 15px purple;
+.button_reg{
     margin-bottom: 10px;
-    font-size: 16px;
-    max-height: 25px;
+    height: 70px;
     outline: none;
-    transition: box-shadow .3s;
     padding: 4px;
     margin-top: 8px;
     border: none;
     border-radius: 5px;
-    background-color: #dadada;
+    background: linear-gradient(90deg, #150964, #f86ee3);
+    color: #19062c;
 }
 
-.input:focus{
-    box-shadow: 0px 0px 20px #e000e0;
-}
-
-.ref_log{
-    margin-top: 20px;
-}
-
-.form{
-    width: 30%;
-    height: 500px;
-    justify-self: center;
-    align-self: center;
-    display: grid;
-    grid-template-rows: 200px auto;
+.button_reg:focus{
+    background: linear-gradient(90deg, #f86ee3, #150964);
 }

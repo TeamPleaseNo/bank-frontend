@@ -20,11 +20,11 @@ const Login = () => {
         repository.login(logInfo)
     }
 
-    return ( 
+    return (
         <div className='LoginContainer'>
             <img className="icon_moneybox" src={moneybox} alt="Moneybox" width="5%"/>
+            <h1>Вход</h1>
             <form className="form" autoComplete='off'>
-                <h1>Вход</h1>
                 <div className="form_input">
                     <label className="block_label" htmlFor='login'>
                         Логин
@@ -34,12 +34,12 @@ const Login = () => {
                         Пароль
                         <input ref={passwordRef} className="input" type="password" id="password"/>
                     </label>
-                    <Link to="registration" className="ref_reg">Ещё нет аккаунта?</Link>
-                </div>            
+                    <button onClick={handleLogin} className="block_label button_login">Войти</button>
+                    <Link to="registration" className="ref">Ещё нет аккаунта?</Link>
+                </div>
             </form>
-            <button onClick={handleLogin}>Войти</button>
         </div>
      );
 }
- 
+
 export default Login;

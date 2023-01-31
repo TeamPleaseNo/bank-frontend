@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom'
-import './../css/Login.css'
+import './../css/Registration.css'
 import repository from './../repositories/OrganisationRepository';
 import RegInfo from './../Objects/RegInfo';
 import React, { useRef } from 'react';
-import moneybox from './moneybox.png'; 
+import moneybox from './moneybox.png';
 
 const Registration = () => {
 
@@ -28,11 +28,11 @@ const Registration = () => {
         console.log(regInfo)
         repository.registration(regInfo);
     }
-    return ( 
-        <div className='LoginContainer'>
+    return (
+        <div className='RegContainer'>
             <img className="icon_moneybox" src={moneybox} alt="Moneybox" width="5%" />
+            <h1>Регистрация</h1>
             <div className="form">
-                <h1>Регистрация</h1>
                 <div className="form_input">
                     <label className="block_label" htmlFor="login">
                         Логин
@@ -62,14 +62,14 @@ const Registration = () => {
                         Дата основания
                         <input ref={dateRef} className="input" type="text" id="foundingDate" />
                     </label>
-                    <Link to="/" className="ref_reg">Уже есть аккаунт?</Link>
+                    <button onClick={handleRegistration} className="block_label button_reg">Зарегистрироваться</button>
+                    <Link to="/" className="ref">Уже есть аккаунт?</Link>
                 </div>
             </div>
-            <button onClick={handleRegistration}>Зарегистрироваться</button>
         </div>
      );
 }
- 
+
 export default Registration;
 
 
