@@ -1,7 +1,7 @@
 import './css/App.css';
 import Login from './components/Login';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Registration from './components/Registration';
+import Registration from './components/Registration.tsx';
 import PersonalArea from "./components/PersonalArea";
 import AddMicroloan from "./components/AddMicroloan";
 

@@ -9,6 +9,7 @@ import ServiceInfo from "../Objects/ServiceInfo";
 
 const url = "http://194-67-97-8.cloudvps.regruhosting.ru";
 
+
 class OrganisationRepository {
 
     async registration(loginInfo: RegInfo) {
