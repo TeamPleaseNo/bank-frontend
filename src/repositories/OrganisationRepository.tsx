@@ -8,7 +8,7 @@ import ErrorSuccessObject from "../Objects/ErrorSuccessObject";
 import ServiceInfo from "../Objects/ServiceInfo";
 
 class OrganisationRepository {
-    async login(loginInfo: RegInfo) {
+    async registration(loginInfo: RegInfo) {
         await axios.post("/api/v1/organisation/registration", loginInfo)
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
@@ -19,7 +19,7 @@ class OrganisationRepository {
             })
     }
 
-    async registration(orgInfo: LoginInfo) {
+    async login(orgInfo: LoginInfo) {
         await axios.post("/api/v1/organisation/authorization", orgInfo)
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
@@ -50,7 +50,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post("/api/v1/organisation/changePersonalData", {headers})
+        return axios.post("/api/v1/organisation/changePersonalData", orgInfo, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
@@ -59,7 +59,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-       return axios.post("/api/v1/organisation/addBranch", {headers})
+       return axios.post("/api/v1/organisation/addBranch", branchInfo, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
@@ -68,7 +68,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post("/api/v1/organisation/removeBranch", {headers})
+        return axios.post("/api/v1/organisation/removeBranch", branchID, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
