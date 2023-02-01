@@ -1,16 +1,19 @@
 import './../css/Login.css';
 import {Link} from 'react-router-dom';
-import { useRef } from 'react';
+import { SyntheticEvent, useRef, useState } from 'react';
 import React from 'react';
 import moneybox from './moneybox.png';
 import LoginInfo from '../Objects/LoginInfo';
 import repository from '../repositories/OrganisationRepository';
+import { SyntheticEventData } from 'react-dom/test-utils';
 
 const Login = () => {
     const loginRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
 
-    const handleLogin = (e) => {
+    const [loginFail, setLoginFail] = useState(false)
+
+    const handleLogin = (e: SyntheticEvent) => {
         e.preventDefault()
         const logInfo: LoginInfo = {
             login: loginRef.current?.value ?? "",
@@ -18,6 +21,8 @@ const Login = () => {
         }
         console.log(logInfo)
         repository.login(logInfo)
+            .then(() => {setLoginFail(true)})
+            .catch(error => {console.log(error); setLoginFail(true);})
     }
 
     return (
@@ -33,8 +38,11 @@ const Login = () => {
                     <label className="block_label" htmlFor="password">
                         Пароль
                         <input ref={passwordRef} className="input" type="password" id="password"/>
-                    </label>
+                    </label>                                 
                     <button onClick={handleLogin} className="block_label button_login">Войти</button>
+                    {
+                        (loginFail) && <span className='login-error'>Неправильный логин или пароль</span>
+                    }      
                     <Link to="registration" className="ref">Ещё нет аккаунта?</Link>
                 </div>
             </form>

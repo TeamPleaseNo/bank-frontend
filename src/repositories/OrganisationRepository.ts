@@ -7,13 +7,13 @@ import axios from 'axios';
 import ErrorSuccessObject from "../Objects/ErrorSuccessObject";
 import ServiceInfo from "../Objects/ServiceInfo";
 
-const url = "http://194-67-97-8.cloudvps.regruhosting.ru";
+const url = "http://194.67.97.8";
 
 
 class OrganisationRepository {
 
-    async registration(loginInfo: RegInfo) {
-        await axios.post(url + "/api/v1/organisation/registration", loginInfo)
+    async registration(regInfo: RegInfo) {
+        await axios.post(url + "/api/v1/organisation/registration", regInfo)
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
                 localStorage.setItem('refreshToken', response.data.refreshToken);
@@ -23,19 +23,20 @@ class OrganisationRepository {
             })
     }
 
-    async login(orgInfo: LoginInfo) {
-        await axios.post(url + "/api/v1/organisation/authorization", orgInfo)
+    async login(logInfo: LoginInfo) {
+        await axios.post(url + "/api/v1/organisation/authorization", logInfo)
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
                 localStorage.setItem('refreshToken', response.data.refreshToken);
+                console.log(response.data)
             })
             .catch(error => {
                 console.log(error);
             })
     }
 
-    async removeOrganisation(loginInfo: LoginInfo) {
-        await axios.post(url + "/api/v1/organisation/removeOrganisation", loginInfo)
+    removeOrganisation(loginInfo: LoginInfo) {
+        axios.post(url + "/api/v1/organisation/removeOrganisation", loginInfo)
             .catch(error => {
                 console.log(error);
             })

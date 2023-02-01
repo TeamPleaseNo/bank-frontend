@@ -86,3 +86,7 @@ h1{
 .button_login:focus{
     background: linear-gradient(90deg, #f86ee3, #150964);
 }
+
+.login-error {
+    color: rgb(180, 15, 15);
+}
