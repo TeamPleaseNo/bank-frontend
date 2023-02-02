@@ -15,8 +15,8 @@ class OrganisationRepository {
     async registration(regInfo: RegInfo) {
         await axios.post(url + "/api/v1/organisation/registration", regInfo)
             .then(response => {
-                localStorage.setItem('authToken', response.data.authToken);
-                localStorage.setItem('refreshToken', response.data.refreshToken);
+                localStorage.setItem('authToken', response.data.access_token);
+                localStorage.setItem('refreshToken', response.data.refresh_token);
                 localStorage.setItem('statusCode', "200");
             })
             .catch(error => {
@@ -28,9 +28,10 @@ class OrganisationRepository {
     async login(logInfo: LoginInfo) {
         await axios.post(url + "/api/v1/organisation/authorization", logInfo)
             .then(response => {
-                localStorage.setItem('authToken', response.data.authToken);
-                localStorage.setItem('refreshToken', response.data.refreshToken);
-                localStorage.setItem('statusCode', "200")       
+                localStorage.setItem('authToken', response.data.access_token);
+                localStorage.setItem('refreshToken', response.data.refresh_token);
+                localStorage.setItem('statusCode', "200")  
+                console.log(response.data.authToken)     
             })
             .catch(error => {
                 console.log(error.response.status);
@@ -120,12 +121,12 @@ class OrganisationRepository {
 
     async refreshToken() {
         const headers = {
-            'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+            'Authorization': 'Bearer ' + localStorage.getItem('refreshToken')
         }
-        return await axios.post(url + "/api/v1/Bearer/refresh_token", {headers})
+        return await axios.get(url + "/api/v1/Token/refresh_token", {headers})
             .then(response =>  {
-                localStorage.setItem('authToken', response.data.authToken);
-                localStorage.setItem('refreshToken', response.data.refreshToken);
+                localStorage.setItem('authToken', response.data.access_token);
+                localStorage.setItem('refreshToken', response.data.refresh_token);
             })
             .catch(error => console.log(error))
     }
