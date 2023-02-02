@@ -106,7 +106,7 @@ class OrganisationRepository {
         }
         return await axios.post(url + "/api/v1/organisation/removeService", {headers})
             .then(response => response.data)
-            .catch(error => console.log(error)) 
+            .catch(error => console.log(error))
     }
 
 

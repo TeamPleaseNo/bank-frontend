@@ -7,7 +7,7 @@ const AddMicroloan = () => {
         <div className='AddContainer'>
             <img className="icon_moneybox" src={moneybox} alt="Moneybox" width="5%"/>
             <form className="form" autoComplete='off'>
-                <h>Добавить микрозайм</h>
+                <h1>Добавить микрозайм</h1>
                 <div className="form_input">
                     <label className="block_label" for="name">
                         Название организации
