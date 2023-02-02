@@ -42,5 +42,5 @@ jobs:
             cd /bank-core
             docker-compose stop frontend
             git pull
-            docker-compose build frontend
+            ./build_front.sh
             docker-compose up -d
