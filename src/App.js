@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>} />
         <Route path="registration" element={<Registration/>} />
-          <Route path="/profile" element={<PersonalArea/>}></Route>
+          <Route path="/personalPage" element={<PersonalArea/>}></Route>
           <Route path="/add" element={<AddMicroloan/>}></Route>
       </Routes>
     </BrowserRouter>

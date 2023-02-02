@@ -2,7 +2,7 @@ type RegInfo = {
     login: String,
     password: String,
     orgName: String,
-    address: String,
+    legalAddress: String,
     genDirector: String,
     foundingDate: String
 }
