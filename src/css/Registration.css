@@ -17,3 +17,7 @@
 .button_reg:focus{
     background: linear-gradient(90deg, #f86ee3, #150964);
 }
+
+.reg-error {
+    color: rgb(180, 15, 15);
+}

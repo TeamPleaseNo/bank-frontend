@@ -1,5 +1,6 @@
 import './../css/Login.css';
 import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router';
 import { SyntheticEvent, useRef, useState } from 'react';
 import React from 'react';
 import moneybox from './moneybox.png';
@@ -12,6 +13,8 @@ const Login = () => {
 
     const [loginFail, setLoginFail] = useState(false)
 
+    const navigate = useNavigate()
+
     const handleLogin = (e: SyntheticEvent) => {
         e.preventDefault()
         const logInfo: LoginInfo = {
@@ -20,7 +23,15 @@ const Login = () => {
         }
         console.log(logInfo)
         repository.login(logInfo)
-            .then(() => {setLoginFail(true)})
+            .then(response => {
+                if (localStorage.getItem('statusCode') === '200') {
+                    setLoginFail(false)
+                    navigate('personalPage')
+                }
+                else {
+                    setLoginFail(true)
+                }
+            })
             .catch(error => {console.log(error); setLoginFail(true);})
     }
 

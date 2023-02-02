@@ -17,9 +17,11 @@ class OrganisationRepository {
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
                 localStorage.setItem('refreshToken', response.data.refreshToken);
+                localStorage.setItem('statusCode', "200");
             })
             .catch(error => {
                 console.log(error.request);
+                localStorage.setItem('statusCode', error.response.status.toString());
             })
     }
 
@@ -28,10 +30,11 @@ class OrganisationRepository {
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
                 localStorage.setItem('refreshToken', response.data.refreshToken);
-                console.log(response.data)
+                localStorage.setItem('statusCode', "200")       
             })
             .catch(error => {
-                console.log(error.request);
+                console.log(error.response.status);
+                localStorage.setItem('statusCode', error.response.status.toString())
             })
     }
 
