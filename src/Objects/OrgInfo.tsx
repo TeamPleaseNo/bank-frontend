@@ -1,8 +1,8 @@
-type OrgInfo = {    
-    orgName: String,
-    address: String,
-    genDirector: String,
-    foundingDate: String
+type OrgInfo = {
+    orgName: string,
+    address: string,
+    genDirector: string,
+    foundingDate: string
 }
 
 export default OrgInfo;

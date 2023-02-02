@@ -1,10 +1,10 @@
 type RegInfo = {
-    login: String,
-    password: String,
-    orgName: String,
-    legalAddress: String,
-    genDirector: String,
-    foundingDate: String
+    login: string,
+    password: string,
+    orgName: string,
+    legalAddress: string,
+    genDirector: string,
+    foundingDate: string
 }
 
 export default RegInfo;

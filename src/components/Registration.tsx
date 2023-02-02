@@ -1,10 +1,12 @@
 import {Link, useNavigate} from 'react-router-dom';
 import './../css/Registration.css';
 import repository from './../repositories/OrganisationRepository';
+// @ts-ignore
 import DatePicker from 'react-datepicker';
 import RegInfo from './../Objects/RegInfo';
 import React, { useRef, useState } from 'react';
 import moneybox from './moneybox.png';
+// @ts-ignore
 import { registerLocale } from  "react-datepicker";
 import ru from 'date-fns/locale/ru';
 import "react-datepicker/dist/react-datepicker.css";
@@ -37,11 +39,11 @@ const Registration = () => {
             startDate.toJSON() === ""
         )
                 setEmptyFields(true)
-        else 
+        else
             setEmptyFields(false)
         if (passwordRef.current?.value !== repPasswordRef.current?.value)
             setPassDontMatch(true)
-        else 
+        else
             setPassDontMatch(false)
     }
 
@@ -53,18 +55,18 @@ const Registration = () => {
             orgName: nameRef.current?.value ?? "",
             legalAddress: addressRef.current?.value ?? "",
             genDirector: directorRef.current?.value ?? "",
-            foundingDate: startDate.toJSON() ?? "",            
+            foundingDate: startDate.toJSON() ?? "",
         }
-        
+
         console.log(emptyFields, passDontMatch)
-        checkForm()       
+        checkForm()
         repository.registration(regInfo)
             .then(response => {
                 if (!emptyFields && !passDontMatch && localStorage.getItem('statusCode') === '200') {
                     navigate('personalPage')
                 }
             })
-            .catch(error => console.log(error))        
+            .catch(error => console.log(error))
     }
     return (
         <div className='RegContainer'>
@@ -102,7 +104,7 @@ const Registration = () => {
                     </label>
                     <button onClick={handleRegistration} className="block_label button_reg">Зарегистрироваться</button>
                     { (passDontMatch) && <span className='reg-error'>Пароли не совпадают!</span> }
-                    { (emptyFields) && <span className='reg-error'>Заполните все поля</span>}                   
+                    { (emptyFields) && <span className='reg-error'>Заполните все поля</span>}
                     <Link to="/" className="ref">Уже есть аккаунт?</Link>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 type BranchInfo = {
-    name: String,
-    address: String,
-    phoneNumber: String
+    name: string,
+    address: string,
+    phoneNumber: string
 }
 
 export default BranchInfo;

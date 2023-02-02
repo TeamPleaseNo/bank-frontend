@@ -21,7 +21,7 @@ const Login = () => {
             login: loginRef.current?.value ?? "",
             password: passwordRef.current?.value ?? ""
         }
-        console.log(logInfo)
+
         repository.login(logInfo)
             .then(response => {
                 if (localStorage.getItem('statusCode') === '200') {
@@ -48,11 +48,11 @@ const Login = () => {
                     <label className="block_label" htmlFor="password">
                         Пароль
                         <input ref={passwordRef} className="input" type="password" id="password"/>
-                    </label>                                 
+                    </label>
                     <button onClick={handleLogin} className="block_label button_login">Войти</button>
                     {
                         (loginFail) && <span className='login-error'>Неправильный логин или пароль</span>
-                    }      
+                    }
                     <Link to="registration" className="ref">Ещё нет аккаунта?</Link>
                 </div>
             </form>
