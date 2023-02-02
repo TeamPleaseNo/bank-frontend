@@ -31,7 +31,7 @@ class OrganisationRepository {
                 console.log(response.data)
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.request);
             })
     }
 
@@ -42,84 +42,84 @@ class OrganisationRepository {
             })
     }
 
-    getPersonalData(): Promise<OrgInfo> {       
+    async getPersonalData(): Promise<OrgInfo> {       
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
           }
-        return axios.get(url + "/api/v1/organisation/getPersonalData", {headers})
+        return await axios.get(url + "/api/v1/organisation/getPersonalData", {headers})
           .then(response => response.data)
           .catch(error => {console.log(error);})
     }
 
-    changePersonalData(orgInfo: OrgInfo): Promise<ChangeDataInfo> {
+    async changePersonalData(orgInfo: OrgInfo): Promise<ChangeDataInfo> {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post(url + "/api/v1/organisation/changePersonalData", orgInfo, {headers})
+        return await axios.post(url + "/api/v1/organisation/changePersonalData", orgInfo, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
 
-    addBranch(branchInfo: BranchInfo): Promise<ErrorSuccessObject> {
+    async addBranch(branchInfo: BranchInfo): Promise<ErrorSuccessObject> {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-       return axios.post(url + "/api/v1/organisation/addBranch", branchInfo, {headers})
+       return await axios.post(url + "/api/v1/organisation/addBranch", branchInfo, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
 
-    removeBranch(branchID: Number): Promise<ErrorSuccessObject> {
+    async removeBranch(branchID: Number): Promise<ErrorSuccessObject> {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post(url + "/api/v1/organisation/removeBranch", branchID, {headers})
+        return await axios.post(url + "/api/v1/organisation/removeBranch", branchID, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
 
-    getBranches(): Promise<BranchInfo[]> {
+    async getBranches(): Promise<BranchInfo[]> {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post(url + "/api/v1/organisation/getBranches", {headers})
+        return await axios.post(url + "/api/v1/organisation/getBranches", {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
 
-    addService(): Promise<ErrorSuccessObject> {
+    async addService(): Promise<ErrorSuccessObject> {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post(url + "/api/v1/organisation/addService", {headers})
+        return await axios.post(url + "/api/v1/organisation/addService", {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
 
-    removeService(): Promise<ErrorSuccessObject> {
+    async removeService(): Promise<ErrorSuccessObject> {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post(url + "/api/v1/organisation/removeService", {headers})
+        return await axios.post(url + "/api/v1/organisation/removeService", {headers})
             .then(response => response.data)
             .catch(error => console.log(error)) 
     }
 
 
-    getServices(): Promise<ServiceInfo[]> {
+    async getServices(): Promise<ServiceInfo[]> {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post(url + "/api/v1/organisation/getServices", {headers})
+        return await axios.post(url + "/api/v1/organisation/getServices", {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
 
-    refreshToken(): Promise<String> {
+    async refreshToken(): Promise<String> {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
         }
-        return axios.post(url + "/api/v1/token/refresh_token", {headers})
+        return await axios.post(url + "/api/v1/token/refresh_token", {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }

@@ -5,7 +5,6 @@ import React from 'react';
 import moneybox from './moneybox.png';
 import LoginInfo from '../Objects/LoginInfo';
 import repository from '../repositories/OrganisationRepository';
-import { SyntheticEventData } from 'react-dom/test-utils';
 
 const Login = () => {
     const loginRef = useRef<HTMLInputElement>(null)

@@ -1,11 +1,20 @@
-import {Link} from 'react-router-dom'
-import './../css/Registration.css'
+import {Link} from 'react-router-dom';
+import './../css/Registration.css';
 import repository from './../repositories/OrganisationRepository';
+import DatePicker from 'react-datepicker';
 import RegInfo from './../Objects/RegInfo';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import moneybox from './moneybox.png';
+import { registerLocale } from  "react-datepicker";
+import ru from 'date-fns/locale/ru';
+import "react-datepicker/dist/react-datepicker.css";
+
+registerLocale('ru', ru)
 
 const Registration = () => {
+
+    const [startDate, setStartDate] = useState(new Date())
+
 
     const loginRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
@@ -20,13 +29,14 @@ const Registration = () => {
             login: loginRef.current?.value ?? "",
             password: passwordRef.current?.value ?? "",
             orgName: nameRef.current?.value ?? "",
-            address: addressRef.current?.value ?? "",
+            legalAddress: addressRef.current?.value ?? "",
             genDirector: directorRef.current?.value ?? "",
-            foundingDate: dateRef.current?.value ?? "",
-
+            foundingDate: startDate.toJSON(),            
         }
         console.log(regInfo)
-        repository.registration(regInfo);
+        repository.registration(regInfo)
+            .then((response => console.log(response)))
+            .catch(error => console.log(error))
     }
     return (
         <div className='RegContainer'>
@@ -60,7 +70,7 @@ const Registration = () => {
                     </label>
                     <label className="block_label" htmlFor="foundingDate">
                         Дата основания
-                        <input ref={dateRef} className="input" type="text" id="foundingDate" />
+                        <DatePicker locale="ru" selected={startDate} onChange={(date => {setStartDate(date)})} ref={dateRef} id="foundingDate" />
                     </label>
                     <button onClick={handleRegistration} className="block_label button_reg">Зарегистрироваться</button>
                     <Link to="/" className="ref">Уже есть аккаунт?</Link>
