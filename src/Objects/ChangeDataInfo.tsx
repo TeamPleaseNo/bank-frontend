@@ -1,5 +1,5 @@
 type ChangeDataInfo = {
-    error: String,
+    error: string,
     isSuccess: boolean
 }
 

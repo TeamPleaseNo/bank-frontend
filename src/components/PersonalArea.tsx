@@ -27,18 +27,20 @@ const PersonalArea = () => {
             ]);
             const dataFetch = () => {
                 repository.getPersonalData().then((data) => {
-                    setInfo(data);
+                    if (data) setInfo(data);
                 })
             };
 
-            // const servicesFetch = () => {
-            //     repository.getServices().then((data) => {
-            //         setList(data);
-            //     })
-            // };
+            const servicesFetch = () => {
+                repository.getServices().then((data) => {
+                    if (data) setList(data);
+                })
+            };
 
-            dataFetch();
-            //servicesFetch();
+            repository.refreshToken().then(() => {
+                dataFetch();
+                servicesFetch();
+            })
         }, []
     )
     ;
@@ -53,20 +55,20 @@ const PersonalArea = () => {
                 <div className="left_inf">
                     <div className="form_l">
                         <h1>Основная информация</h1>
-                        <div className="basic_info">
+                        {info && <div className="basic_info">
                             <label className="block_label" htmlFor="adress">
                                 Адрес
-                                <input className="read_info" type="text" id="adress" disabled/>
+                                <input className="read_info" type="text" id="adress" value={info.address} disabled/>
                             </label>
                             <label className="block_label" htmlFor="number">
                                 Телефон
-                                <input className="read_info" type="text" id="number" disabled/>
+                                <input className="read_info" type="text" id="number" value={info.genDirector} disabled/>
                             </label>
                             <label className="block_label" htmlFor="email">
                                 Электронная почта
                                 <input className="read_info" type="email" id="email" disabled/>
                             </label>
-                        </div>
+                        </div>}
                     </div>
                 </div>
                 <div className="right_inf">

@@ -1,6 +1,6 @@
 type LoginInfo = {
-    login: String,
-    password: String
+    login: string,
+    password: string
 }
 
 export default LoginInfo;

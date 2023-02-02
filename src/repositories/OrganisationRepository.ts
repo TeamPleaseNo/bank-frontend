@@ -30,7 +30,7 @@ class OrganisationRepository {
             .then(response => {
                 localStorage.setItem('authToken', response.data.authToken);
                 localStorage.setItem('refreshToken', response.data.refreshToken);
-                localStorage.setItem('statusCode', "200")       
+                localStorage.setItem('statusCode', "200")
             })
             .catch(error => {
                 console.log(error.response.status);
@@ -45,7 +45,7 @@ class OrganisationRepository {
             })
     }
 
-    async getPersonalData(): Promise<OrgInfo> {       
+    async getPersonalData(): Promise<OrgInfo> {
         const headers = {
             'Authorization': 'Bearer ' + localStorage.getItem('authToken')
           }
@@ -113,7 +113,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Bearer ' + localStorage.getItem('authToken')
         }
-        return await axios.post(url + "/api/v1/organisation/getServices", {headers})
+        return await axios.get(url + "/api/v1/organisation/getServices", {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }
@@ -122,7 +122,7 @@ class OrganisationRepository {
         const headers = {
             'Authorization': 'Bearer ' + localStorage.getItem('authToken')
         }
-        return await axios.post(url + "/api/v1/Bearer/refresh_token", {headers})
+        return await axios.get(url + "/api/v1/token/refresh_token", {headers})
             .then(response =>  {
                 localStorage.setItem('authToken', response.data.authToken);
                 localStorage.setItem('refreshToken', response.data.refreshToken);
