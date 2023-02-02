@@ -1,9 +1,9 @@
 type ServiceInfo = {
-    name: String,
-    description: String,
-    percent: String,
-    minLoanPeriod: String,
-    maxLoanPeriod: String,
+    name: string,
+    description: string,
+    percent: string,
+    minLoanPeriod: string,
+    maxLoanPeriod: string,
     isOnline: boolean
 }
 

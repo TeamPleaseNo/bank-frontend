@@ -17,7 +17,9 @@ const Login = () => {
             password: passwordRef.current?.value ?? ""
         }
         console.log(logInfo)
-        repository.login(logInfo)
+        repository.login(logInfo).then(() => {
+            // navigate
+        })
     }
 
     return (

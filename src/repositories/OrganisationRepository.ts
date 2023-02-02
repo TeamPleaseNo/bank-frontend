@@ -26,8 +26,9 @@ class OrganisationRepository {
     async login(orgInfo: LoginInfo) {
         await axios.post(url + "/api/v1/organisation/authorization", orgInfo)
             .then(response => {
-                localStorage.setItem('authToken', response.data.authToken);
-                localStorage.setItem('refreshToken', response.data.refreshToken);
+                console.log(response)
+                localStorage.setItem('authToken', response.data.access_token);
+                localStorage.setItem('refreshToken', response.data.refresh_token);
             })
             .catch(error => {
                 console.log(error);
@@ -41,10 +42,11 @@ class OrganisationRepository {
             })
     }
 
-    getPersonalData(): Promise<OrgInfo> {       
+    getPersonalData(): Promise<OrgInfo> {
         const headers = {
             'Authorization': 'Token ' + localStorage.getItem('authToken')
           }
+        console.log(headers)
         return axios.get(url + "/api/v1/organisation/getPersonalData", {headers})
           .then(response => response.data)
           .catch(error => {console.log(error);})
@@ -101,7 +103,7 @@ class OrganisationRepository {
         }
         return axios.post(url + "/api/v1/organisation/removeService", {headers})
             .then(response => response.data)
-            .catch(error => console.log(error)) 
+            .catch(error => console.log(error))
     }
 
 
