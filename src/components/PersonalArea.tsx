@@ -17,7 +17,7 @@ const PersonalArea = () => {
 
     const addressRef = useRef<HTMLInputElement>(null)
     const directorRef = useRef<HTMLInputElement>(null)
-    
+
     const trimDate = (date: String) => {
         let index = date.indexOf('T')
         let res = date.substring(0, index)
@@ -41,13 +41,13 @@ const PersonalArea = () => {
         })
     }
 
-    useEffect(() => {    
+    useEffect(() => {
         repository.refreshToken()
-            .then(_ => console.log(repository.getPersonalData().then(res => res)) ) 
-              
+            .then(_ => console.log(repository.getPersonalData().then(res => res)) )
+
             const dataFetch = () => {
                 repository.getPersonalData().then((data) => {
-                    if (data) setInfo(data);                                   
+                    if (data) setInfo(data);
                 })
             };
 
@@ -59,7 +59,7 @@ const PersonalArea = () => {
 
             repository.refreshToken().then(() => {
                 dataFetch();
-                servicesFetch();                
+                servicesFetch();
             })
         }, []
     )
@@ -80,7 +80,7 @@ const PersonalArea = () => {
                                 Адрес
                                 <input ref={addressRef} onChange= {
                                         (val) => {setDataChanged(true); setInfo({...info, legalAddress: val.target.value})}
-                                    } 
+                                    }
                                     className="read_info" type="text" id="adress" value={info.legalAddress} />
                             </label>
                             <label className="block_label" htmlFor="number">
@@ -97,8 +97,8 @@ const PersonalArea = () => {
                                 }
                                  className="read_info" type="email" id="email" value={trimDate(info.foundingDate)} />
                             </label>
+                            { (dataChanged) && <button className="button_update" onClick={changeOrgInfo}>Click me</button> }
                         </div>}
-                        { (dataChanged) && <button onClick={changeOrgInfo}>Click me</button> }
                     </div>
                 </div>
                 <div className="right_inf">

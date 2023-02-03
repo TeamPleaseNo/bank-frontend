@@ -137,5 +137,18 @@
     background-color: #dadada;
 }
 
+.button_update{
+    margin-bottom: 10px;
+    height: 30px;
+    width: 70%;
+    outline: none;
+    padding: 4px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #8a2be2, #ef05cc);
+    color: #19062c;
+}
+
 
 
