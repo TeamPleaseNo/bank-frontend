@@ -51,6 +51,10 @@ const PersonalArea = () => {
         })
     }
 
+    const addLoan = (id) => {
+        console.log(id)
+    }
+
     useEffect(() => {
         repository.refreshToken()
             .then(_ => console.log(repository.getPersonalData().then(res => res)) )
@@ -118,7 +122,8 @@ const PersonalArea = () => {
                             {list.map((item, i) => <div key={i} className="loan">
                                 <div className="name">
                                     <div className="column">
-                                        <label>Название</label>
+                                        <label className="name_label">Название</label>
+                                        <div className="d"></div>
                                         <div className="answer">
                                             <label>{item.name}</label>
                                         </div>
@@ -126,13 +131,15 @@ const PersonalArea = () => {
                                 </div>
                                 <div className="info">
                                     <div className="column">
-                                        <label>Описание</label>
+                                        <label className="desc_label">Описание</label>
+                                        <div className="d"></div>
                                         <textarea disabled className="info_text" value={item.description}/>
                                     </div>
                                 </div>
                                 <div className="percent">
                                     <div className="column">
-                                        <label>Процентная ставка</label>
+                                        <label className="other_info_label">Процентная ставка</label>
+                                        <div className="d"></div>
                                         <div className="answer">
                                             <label>{item.percent}</label>
                                         </div>
@@ -140,13 +147,17 @@ const PersonalArea = () => {
                                 </div>
                                 <div className="choise">
                                     <div className="column">
-                                        <label>Возможность онлайн</label>
+                                        <label className="other_info_label">Возможность онлайн</label>
+                                        <div className="d"></div>
                                         <div className="answer">
                                             <label>{item.isOnline ? 'да' : 'нет'}</label>
                                         </div>
                                     </div>
                                 </div>
-                                <button onClick={() => deleteLoan(item.id)}>Удалить</button>
+                                <div>
+                                    <button className="button_add" onClick={() => addLoan(item.id)}>Добавить</button>
+                                    <button className="button_delete" onClick={() => deleteLoan(item.id)}>Удалить</button>
+                                </div>
                             </div>)}
                         </div>
                     </div>
