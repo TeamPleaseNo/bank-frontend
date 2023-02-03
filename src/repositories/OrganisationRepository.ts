@@ -6,6 +6,7 @@ import BranchInfo from "../Objects/BranchInfo";
 import axios from 'axios';
 import ErrorSuccessObject from "../Objects/ErrorSuccessObject";
 import ServiceInfo from "../Objects/ServiceInfo";
+import gotServiceInfo from "../Objects/gotServiceInfo";
 
 const url = "http://194.67.97.8";
 
@@ -73,7 +74,7 @@ class OrganisationRepository {
             .catch(error => console.log(error))
     }
 
-    async removeBranch(branchID: Number): Promise<ErrorSuccessObject> {
+    async removeBranch(branchID: number): Promise<ErrorSuccessObject> {
         const headers = {
             'Authorization': 'Bearer ' + localStorage.getItem('authToken')
         }
@@ -100,17 +101,21 @@ class OrganisationRepository {
             .catch(error => console.log(error))
     }
 
-    async removeService(): Promise<ErrorSuccessObject> {
+    async removeService(id: number): Promise<ErrorSuccessObject> {
         const headers = {
             'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+        }        
+        const data = {
+            id: id
         }
-        return await axios.post(url + "/api/v1/organisation/removeService", {headers})
+        console.log(data)
+        return await axios.delete(url + "/api/v1/organisation/removeService", {data, headers})
             .then(response => response.data)
-            .catch(error => console.log(error))
+            .catch(error => console.log(error.request))
     }
 
 
-    async getServices(): Promise<ServiceInfo[]> {
+    async getServices(): Promise<gotServiceInfo[]> {
         const headers = {
             'Authorization': 'Bearer ' + localStorage.getItem('authToken')
         }

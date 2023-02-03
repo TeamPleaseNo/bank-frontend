@@ -1,17 +1,12 @@
 import './../css/AddMicroloan.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useState, useRef } from 'react';
 import ServiceInfo from '../Objects/ServiceInfo';
 import repository from '../repositories/OrganisationRepository';
 const moneybox = require('./moneybox.png');
 
 const AddMicroloan = () => {
-    /*name: string,
-    description: string,
-    percent: string,
-    minLoanPeriod: string,
-    maxLoanPeriod: string,
-    isOnline: boolean*/
+    const navigate = useNavigate()
 
     const [isOnline, setIsOnline] = useState(false)
 
@@ -34,7 +29,7 @@ const AddMicroloan = () => {
         console.log(newLoan)
         repository.refreshToken().then(() => {
             repository.addService(newLoan)
-                .then(res => console.log(res.error, res.isSuccess, res.id))
+                .then(() => navigate('../personalPage'))
         })
     }
 

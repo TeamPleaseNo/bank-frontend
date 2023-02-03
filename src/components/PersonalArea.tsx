@@ -6,12 +6,13 @@ import ServiceInfo from "../Objects/ServiceInfo";
 import ru from 'date-fns/locale/ru';
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker, {registerLocale} from 'react-datepicker';
+import gotServiceInfo from '../Objects/gotServiceInfo';
 
 registerLocale('ru', ru)
 
 const PersonalArea = () => {
     const [info, setInfo] = useState<OrgInfo>();
-    const [list, setList] = useState<ServiceInfo[]>([]);
+    const [list, setList] = useState<gotServiceInfo[]>([]);
     const [startDate, setStartDate] = useState(new Date())
     const [dataChanged, setDataChanged] = useState(false)
 
@@ -37,6 +38,16 @@ const PersonalArea = () => {
                     setDataChanged(false)
                     console.log(res.isSuccess, res.error)
                 })
+        })
+    }
+
+    const deleteLoan = (id) => {
+        console.log(id)
+        repository.refreshToken().then(() => {
+            repository.removeService(id)
+                .then(() => repository.getServices().then((data) => {
+                    if (data) setList(data);
+                }))
         })
     }
 
@@ -109,7 +120,7 @@ const PersonalArea = () => {
                                     <div className="column">
                                         <label>Название</label>
                                         <div className="answer">
-                                            <label>{item.serviceName}</label>
+                                            <label>{item.name}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +146,7 @@ const PersonalArea = () => {
                                         </div>
                                     </div>
                                 </div>
-
+                                <button onClick={() => deleteLoan(item.id)}>Удалить</button>
                             </div>)}
                         </div>
                     </div>
