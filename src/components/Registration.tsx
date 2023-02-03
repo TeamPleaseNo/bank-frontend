@@ -63,7 +63,7 @@ const Registration = () => {
         repository.registration(regInfo)
             .then(response => {
                 if (!emptyFields && !passDontMatch && localStorage.getItem('statusCode') === '200') {
-                    navigate('personalPage')
+                    navigate('../personalPage')
                 }
             })
             .catch(error => console.log(error))

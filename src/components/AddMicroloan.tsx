@@ -49,7 +49,7 @@ const AddMicroloan = () => {
                     </label>
                     <label className="block_label" htmlFor="percent">
                         Процентная ставка
-                        <input ref={percentRef} className="input" type="text" id="percent"/>
+                        <input ref={percentRef} className="input" type="number" id="percent"/>
                     </label>
                     <label className="block_label" htmlFor="min">
                         Минимальный срок

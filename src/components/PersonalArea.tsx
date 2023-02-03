@@ -1,6 +1,7 @@
 import './../css/PersonalArea.css';
 import repository from "../repositories/OrganisationRepository";
 import {useEffect, useState, useRef} from "react";
+import { useNavigate } from 'react-router-dom';
 import OrgInfo from "../Objects/OrgInfo";
 import ServiceInfo from "../Objects/ServiceInfo";
 import ru from 'date-fns/locale/ru';
@@ -11,6 +12,8 @@ import gotServiceInfo from '../Objects/gotServiceInfo';
 registerLocale('ru', ru)
 
 const PersonalArea = () => {
+    const navigate = useNavigate()
+
     const [info, setInfo] = useState<OrgInfo>();
     const [list, setList] = useState<gotServiceInfo[]>([]);
     const [startDate, setStartDate] = useState(new Date())
@@ -52,6 +55,7 @@ const PersonalArea = () => {
     }
 
     const addLoan = () => {
+        navigate('../add')
     }
 
     useEffect(() => {
