@@ -70,8 +70,8 @@ const AddMicroloan = () => {
                             <label htmlFor="search_mentor">Возможность оформления онлайн</label>
                         </div>
                     </div>
-                </div>
-                <button onClick={addLoan}>Добавить</button>
+                    <button className='button_save' onClick={addLoan}>Добавить</button>
+                </div>                
             </form>
         </div>
     );
