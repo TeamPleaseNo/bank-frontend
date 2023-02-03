@@ -51,8 +51,7 @@ const PersonalArea = () => {
         })
     }
 
-    const addLoan = (id) => {
-        console.log(id)
+    const addLoan = () => {
     }
 
     useEffect(() => {
@@ -155,13 +154,15 @@ const PersonalArea = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className="button_add" onClick={() => addLoan(item.id)}>Добавить</button>
                                     <button className="button_delete" onClick={() => deleteLoan(item.id)}>Удалить</button>
                                 </div>
+                                <div className="line_under_loan"></div>
                             </div>)}
                         </div>
                     </div>
+                    <button className="button_add" onClick={() => addLoan()}>Добавить</button>
                 </div>
+
             </div>
 
         </div>
