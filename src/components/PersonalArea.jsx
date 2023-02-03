@@ -3,11 +3,11 @@ import {Link} from "react-router-dom";
 
 const PersonalArea = () => {
     return (
-        <div>
+        <div>            
             <div className="header">
                 <label className="label_in_header">Личный кабинет (name)</label>
                 <div className="line"></div>
-            </div>
+            </div>            
             <div className="inf">
                 <div className="left_inf">
                     <div className="form_l">

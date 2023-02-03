@@ -1,42 +1,6 @@
 .AddContainer {
     display: grid;
 }
-
-.icon_moneybox{
-    justify-self: center;
-    align-self: center;
-    margin-bottom: 40px;
-    margin-top: 15px;
-}
-
-.form_input {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    align-items: center;
-    text-align: left;
-}
-
-.block_label{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-}
-
-.input {
-    box-shadow: 0px 0px 15px purple;
-    margin-bottom: 10px;
-    font-size: 16px;
-    max-height: 25px;
-    outline: none;
-    transition: box-shadow .3s;
-    padding: 4px;
-    margin-top: 8px;
-    border: none;
-    border-radius: 5px;
-    background-color: #dadada;
-}
-
 .input_textarea{
     box-shadow: 0px 0px 15px purple;
     margin-bottom: 10px;
@@ -56,16 +20,15 @@
     box-shadow: 0px 0px 20px #e000e0;
 }
 
-.input:focus{
-    box-shadow: 0px 0px 20px #e000e0;
-}
-
-
-.form{
-    width: 30%;
-    height: 500px;
-    justify-self: center;
-    align-self: center;
-    display: grid;
-    grid-template-rows: 200px 10px;
+.button_save{
+    margin-bottom: 10px;
+    height: 30px;
+    width: 70%;
+    outline: none;
+    padding: 4px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #8a2be2, #ef05cc);
+    color: #19062c;
 }
