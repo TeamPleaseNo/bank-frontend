@@ -1,5 +1,5 @@
 import './../css/AddMicroloan.css';
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import { useState, useRef } from 'react';
 import ServiceInfo from '../Objects/ServiceInfo';
 import repository from '../repositories/OrganisationRepository';

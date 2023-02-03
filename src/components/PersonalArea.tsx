@@ -3,7 +3,6 @@ import repository from "../repositories/OrganisationRepository";
 import {useEffect, useState, useRef} from "react";
 import { useNavigate } from 'react-router-dom';
 import OrgInfo from "../Objects/OrgInfo";
-import ServiceInfo from "../Objects/ServiceInfo";
 import ru from 'date-fns/locale/ru';
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker, {registerLocale} from 'react-datepicker';
