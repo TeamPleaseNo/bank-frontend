@@ -91,11 +91,11 @@ class OrganisationRepository {
             .catch(error => console.log(error))
     }
 
-    async addService(): Promise<ErrorSuccessObject> {
+    async addService(serviceInfo: ServiceInfo): Promise<ErrorSuccessObject> {
         const headers = {
             'Authorization': 'Bearer ' + localStorage.getItem('authToken')
         }
-        return await axios.post(url + "/api/v1/organisation/addService", {headers})
+        return await axios.post(url + "/api/v1/organisation/addService", serviceInfo, {headers})
             .then(response => response.data)
             .catch(error => console.log(error))
     }

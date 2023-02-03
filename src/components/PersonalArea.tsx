@@ -31,7 +31,6 @@ const PersonalArea = () => {
             genDirector: directorRef.current?.value ?? "",
             foundingDate: startDate.toJSON()
         }
-        console.log(updatedInfo)
         repository.refreshToken().then(() => {
             repository.changePersonalData(updatedInfo)
                 .then((res) => {
@@ -97,7 +96,7 @@ const PersonalArea = () => {
                                 }
                                  className="read_info" type="email" id="email" value={trimDate(info.foundingDate)} />
                             </label>
-                            { (dataChanged) && <button className="button_update" onClick={changeOrgInfo}>Click me</button> }
+                            { (dataChanged) && <button className="button_update" onClick={changeOrgInfo}>Сохранить изменения</button> }
                         </div>}
                     </div>
                 </div>
@@ -110,7 +109,7 @@ const PersonalArea = () => {
                                     <div className="column">
                                         <label>Название</label>
                                         <div className="answer">
-                                            <label>{item.name}</label>
+                                            <label>{item.serviceName}</label>
                                         </div>
                                     </div>
                                 </div>

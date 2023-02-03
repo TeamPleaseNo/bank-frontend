@@ -1,5 +1,5 @@
 type ServiceInfo = {
-    name: string,
+    serviceName: string,
     description: string,
     percent: string,
     minLoanPeriod: string,
