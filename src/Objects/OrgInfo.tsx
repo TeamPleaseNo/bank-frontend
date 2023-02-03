@@ -1,6 +1,6 @@
 type OrgInfo = {
-    orgName: string,
-    address: string,
+    orgName: string | undefined,
+    legalAddress: string,
     genDirector: string,
     foundingDate: string
 }
